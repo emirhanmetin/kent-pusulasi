@@ -1,0 +1,4 @@
+# Doğrulanmış taksi durağı telefonları. Uygulamada "Ara" düğmesi olarak görünür; OpenStreetMap'teki numaralardan önceliklidir.
+# Biçim: ilce;durak;telefon  (durak adı belediye verisindeki gibi yazılır, "Taksi Durağı" eki olsa da olmasa da eşleşir)
+# Örnek:  Bayraklı;Adliye Taksi Durağı;0232 123 45 67
+ilce;durak;telefon

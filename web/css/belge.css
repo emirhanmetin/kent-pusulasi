@@ -1,0 +1,35 @@
+/* Gizlilik ve kaynaklar sayfaları: sade, okunaklı metin düzeni (açık / koyu). */
+:root {
+  --bg: #ffffff;
+  --text: #1c1c1e;
+  --muted: rgba(60, 60, 67, 0.64);
+  --line: rgba(60, 60, 67, 0.18);
+  --accent: #007aff;
+  --note: #fff8e6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #000000; --text: #f2f2f7; --muted: rgba(235, 235, 245, 0.6); --line: rgba(84, 84, 88, 0.65); --accent: #0a84ff; --note: #2c2410; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+}
+.doc { max-width: 720px; margin: 0 auto; padding: 40px 20px 64px; }
+.eyebrow { margin: 0; color: var(--accent); font-weight: 600; font-size: 14px; }
+h1 { margin: 4px 0 8px; font-size: 30px; line-height: 1.2; letter-spacing: -0.02em; }
+h2 { margin: 32px 0 8px; font-size: 20px; letter-spacing: -0.01em; }
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+.note { margin: 20px 0; padding: 12px 16px; border-radius: 12px; background: var(--note); font-size: 14px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14.5px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 0.5px solid var(--line); }
+th { color: var(--muted); font-weight: 600; font-size: 13px; }
+ul { padding-left: 20px; }
+li { margin: 6px 0; }
+@media (max-width: 560px) {
+  table, thead, tbody, tr, th, td { display: block; }
+  thead { display: none; }
+  tr { padding: 10px 0; border-bottom: 0.5px solid var(--line); }
+  td { border: 0; padding: 2px 0; }
+}

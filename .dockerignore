@@ -1,0 +1,16 @@
+.venv
+.cache
+.env
+.claude
+__pycache__
+*.pyc
+mobile
+osrm
+scripts
+deploy
+*.md
+mobile-android
+dist-android
+play-store
+osrm$p
+.idea

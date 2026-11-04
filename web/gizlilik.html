@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gizlilik Politikası · Kent Pusulası</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="css/belge.css">
+</head>
+<body>
+<main class="doc">
+  <p class="eyebrow">Kent Pusulası İzmir</p>
+  <h1>Gizlilik Politikası ve Aydınlatma Metni</h1>
+  <p class="muted">Son güncelleme: 23 Ekim 2026</p>
+
+
+  <h2>1. Veri sorumlusu</h2>
+  <p>
+    Kent Pusulası İzmir uygulaması <strong>Emirhan Metin</strong> tarafından geliştirilmektedir.
+    İletişim: <a href="mailto:emirhanmetin12@gmail.com">emirhanmetin12@gmail.com</a>.
+    Uygulama İzmir Büyükşehir Belediyesi'nin resmî uygulaması değildir; belediyenin açık verilerini kullanır.
+  </p>
+
+  <h2>2. Hangi verileri işliyoruz?</h2>
+  <table>
+    <thead><tr><th>Veri</th><th>Ne için</th><th>Saklama</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Konum</strong> (yalnızca siz izin verirseniz, uygulama açıkken)</td>
+        <td>Size en yakın eczane, toplanma alanı, otopark vb. kayıtları sıralamak ve rota çizmek. Konumunuz her
+          istekle sunucumuza gönderilir.</td>
+        <td>Saklanmaz. Sunucu günlüklerine konum ve IP adresi yazılmaz; yol mesafesi hesapları en fazla 1 saat
+          bellekte önbelleğe alınır (yaklaşık 10 m hassasiyetle, kimliğinizle ilişkilendirilmeden).</td>
+      </tr>
+      <tr>
+        <td><strong>IP adresi</strong></td>
+        <td>Bağlantının kurulması ve kötüye kullanıma karşı istek sınırı.</td>
+        <td>Yalnızca bellekte, en fazla 1 dakika. Diske yazılmaz.</td>
+      </tr>
+      <tr>
+        <td><strong>Bildirim bilgileri</strong> (yalnızca bildirimleri açarsanız)</td>
+        <td>Seçtiğiniz mahallede ya da seçtiğiniz yarıçapta (en çok 5 km) su/elektrik kesintisi, kötü hava kalitesi ya da İzmir yakınında M4 ve üstü deprem olduğunda haber vermek:
+          cihazınızın bildirim anahtarı (push token), seçtiğiniz ilçe/mahalle ve bildirim türleri. Konumunuz gönderilmez.</td>
+        <td>Bildirimleri kapatana kadar. Uygulamadaki Bildirimler ekranında "Bildirimleri aç" kapatılınca anında silinir.
+          Geçersizleşen anahtarlar otomatik silinir.</td>
+      </tr>
+      <tr>
+        <td><strong>Cihazınızda kalanlar</strong></td>
+        <td>Favori yerler, "Mahallem", buluşma noktası, çevrimdışı toplanma alanı listesi, hatırlatıcılar.</td>
+        <td>Yalnızca telefonunuzda. Uygulamayı silince silinir; bize gönderilmez.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Hesap oluşturma, reklam, izleme (tracking) veya üçüncü taraf analiz aracı <strong>yoktur</strong>.</p>
+
+  <h2>3. Verilerin aktarıldığı taraflar</h2>
+  <ul>
+    <li><strong>Rota sunucusu:</strong> Yol mesafesi ve rota için başlangıç ve hedef koordinatları OSRM rota
+      sunucusuna gönderilir. Bu sunucu ve uygulama sunucusu tarafımızca kiralanan bir bulut sunucuda işletilir;
+      koordinatlar kaydedilmez.</li>
+    <li><strong>Harita altlığı:</strong> Android uygulamasında harita görselleri OpenFreeMap'ten
+      (tiles.openfreemap.org) indirilir; bu sırada cihazınızın IP adresi ve görüntülenen harita bölgesi bu servise
+      ulaşır. iPhone uygulamasında harita Apple tarafından gösterilir; Apple'ın gizlilik politikası geçerlidir.</li>
+    <li><strong>Anlık bildirim altyapısı</strong> (yalnızca bildirimleri açarsanız): Bildirimler Expo (ABD) ile
+      Apple Push Notification service ya da Google Firebase Cloud Messaging üzerinden iletilir; bu servislere yalnızca
+      bildirim anahtarı ve bildirim metni gider.</li>
+    <li>Belediye, İZSU, EPİAŞ gibi veri kaynaklarına <strong>sizin verileriniz gönderilmez</strong>; bu kaynaklardan
+      yalnızca herkese açık veriler alınır.</li>
+  </ul>
+  <p>
+    Rota ve bildirim servislerinin yurt dışında bulunması KVKK kapsamında yurt dışına veri aktarımı sayılabilir.
+    Bu aktarım, yalnızca ilgili özelliği (rota, harita, bildirim) kullanmanız hâlinde ve hizmetin sunulması için
+    zorunlu olduğu ölçüde gerçekleşir; bildirimleri açmanız bu aktarıma açık rızanız anlamına gelir ve
+    bildirimleri kapatarak rızanızı istediğiniz zaman geri alabilirsiniz.
+  </p>
+
+  <h2>4. Haklarınız</h2>
+  <p>
+    KVKK'nın 11. maddesi kapsamında verilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini veya silinmesini
+    isteme haklarına sahipsiniz. Talepleriniz için: <a href="mailto:emirhanmetin12@gmail.com">emirhanmetin12@gmail.com</a>. Konum iznini
+    istediğiniz zaman Android'de Ayarlar › Uygulamalar › Kent Pusulası › İzinler'den, iPhone'da Ayarlar ›
+    Gizlilik ve Güvenlik › Konum Servisleri'nden geri alabilirsiniz. Hesap bulunmadığından ve konum saklanmadığından
+    silinecek bir kullanıcı kaydı yoktur; cihazınızdaki veriler uygulamayı silince silinir.</p>
+
+  <h2>5. Çocuklar</h2>
+  <p>
+    Uygulama 13 yaşından küçük çocuklara yönelik değildir ve bilerek çocuklardan veri toplamaz.
+  </p>
+
+  <h2>6. Önemli uyarı</h2>
+  <p>
+    Uygulamadaki bilgiler kamu kurumlarının açık verilerinden alınır ve bilgilendirme amaçlıdır; doğruluğu ve
+    güncelliği garanti edilmez. <strong>Acil durumlarda 112'yi arayın</strong> ve AFAD ile yetkililerin
+    duyurularını esas alın.
+  </p>
+  <p><a href="kaynaklar.html">Veri kaynakları ve lisanslar</a></p>
+</main>
+</body>
+</html>

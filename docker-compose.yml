@@ -1,0 +1,57 @@
+# Yayın kurulumu: API + kendi rota sunucularımız (araç, yürüme) + otomatik https (Caddy).
+#
+# Hazırlık:
+#   1. .env dosyasında DOMAIN (ör. api.alanadiniz.com.tr) ve EPIAS_* değerlerini doldurun.
+#   2. Rota verisini hazırlayın:  sh scripts/osrm_hazirla.sh   (ilk seferde, sonra ayda bir)
+#   3. Başlatın:                   docker compose up -d --build
+# Alan adınızın DNS A kaydı bu sunucunun IP'sini göstermeli; Caddy sertifikayı kendisi alır.
+
+services:
+  api:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      KP_ENV: prod
+      KP_TRUST_PROXY: "1"
+      OSRM_URL: http://osrm-car:5000
+      OSRM_FOOT_URL: http://osrm-foot:5000
+    volumes:
+      - api-cache:/app/.cache
+    depends_on:
+      - osrm-car
+      - osrm-foot
+
+  osrm-car:
+    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    restart: unless-stopped
+    command: osrm-routed --algorithm mld --max-table-size 200 /data/car/izmir.osrm
+    volumes:
+      - ./osrm:/data:ro
+
+  osrm-foot:
+    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    restart: unless-stopped
+    command: osrm-routed --algorithm mld --max-table-size 200 /data/foot/izmir.osrm
+    volumes:
+      - ./osrm:/data:ro
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?.env içinde DOMAIN tanımlayın}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - api
+
+volumes:
+  api-cache:
+  caddy-data:
+  caddy-config:

@@ -1,0 +1,21 @@
+.venv/
+.cache/
+__pycache__/
+.env
+
+# Rota verisi (scripts/osrm_hazirla.sh üretir)
+osrm/
+
+# Android derleme çıktıları (mobile-android/scripts/build-android.ps1)
+dist-android/
+
+# Yerel IDE ve geçici klasörler
+.idea/
+osrm$p/
+
+# Yayın imzası (mobile-android/.gitignore da dışlar)
+mobile-android/credentials/
+*.jks
+
+# create-expo-app'in olusturdugu eski ic depo (tek 'Initial commit')
+mobile/.git-expo-yedek/

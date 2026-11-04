@@ -1,0 +1,7 @@
+# https sertifikası Let's Encrypt'ten otomatik alınır ve yenilenir.
+{$DOMAIN} {
+	encode zstd gzip
+	header Strict-Transport-Security "max-age=31536000"
+	# Caddy'nin erişim günlüğü kapalı (varsayılan): konum koordinatları kayda geçmesin.
+	reverse_proxy api:8000
+}

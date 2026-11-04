@@ -1,0 +1,22 @@
+# Render.com Blueprint: API + web sitesi (gizlilik politikası) tek Docker servisi, otomatik https.
+# Render panelinde New › Blueprint › bu depoyu seçin. Adres: https://kent-pusulasi-api.onrender.com (ad doluysa farklı olur)
+# Kendi OSRM sunucunuz olmadığı için rota ilk aşamada FOSSGIS'in genel sunucusundan alınır (KP_PUBLIC_ROUTING);
+# kullanıcı sayısı artınca docker-compose.yml ile kendi sunucunuza geçin.
+services:
+  - type: web
+    name: kent-pusulasi-api
+    runtime: docker
+    plan: starter # "free" da çalışır ama 15 dk boşta kalınca uyur, ilk istek ~1 dk sürer
+    region: frankfurt
+    healthCheckPath: /api/katmanlar
+    envVars:
+      - key: KP_ENV
+        value: prod
+      - key: KP_TRUST_PROXY
+        value: "1"
+      - key: KP_PUBLIC_ROUTING
+        value: "1"
+      - key: EPIAS_USERNAME
+        sync: false
+      - key: EPIAS_PASSWORD
+        sync: false

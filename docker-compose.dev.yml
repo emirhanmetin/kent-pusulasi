@@ -1,0 +1,27 @@
+# Geliştirme: yalnızca kendi rota sunucularımız (araç + yürüme), yalnızca bu bilgisayardan erişilebilir.
+#
+#   sh scripts/osrm_hazirla.sh                      # ilk seferde (veri: ./osrm)
+#   docker compose -f docker-compose.dev.yml up -d
+#
+# .env içine:  OSRM_URL=http://127.0.0.1:5001   OSRM_FOOT_URL=http://127.0.0.1:5002
+
+name: kent-pusulasi-dev
+
+services:
+  osrm-car:
+    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    restart: unless-stopped
+    command: osrm-routed --algorithm mld --max-table-size 200 /data/car/izmir.osrm
+    ports:
+      - "127.0.0.1:5001:5000"
+    volumes:
+      - ./osrm:/data:ro
+
+  osrm-foot:
+    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    restart: unless-stopped
+    command: osrm-routed --algorithm mld --max-table-size 200 /data/foot/izmir.osrm
+    ports:
+      - "127.0.0.1:5002:5000"
+    volumes:
+      - ./osrm:/data:ro
